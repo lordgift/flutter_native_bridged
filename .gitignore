@@ -1,0 +1,13 @@
+## Ignore everything
+*
+
+# Allow directories so we can find files within them
+!*/
+
+# Specifically allow the requested files
+!android/**/MainActivity.kt
+!ios/**/AppDelegate.swift
+!**/main.dart
+
+# Optional: Allow .gitignore itself
+!.gitignore

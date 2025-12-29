@@ -1,16 +1,10 @@
 # flutter_native_bridged
 
-Communication between flutter and native code.
+Sample code that represent the simplest way to communicate between flutter and native code.
 
-## Getting Started
+Source code started from Android Studio excluding unnecessary files, please only focus on following files.
 
-This project is a starting point for a Flutter application.
+- [main.dart](lib/main.dart)
+- [MainActivity.kt](android/app/src/main/kotlin/th/in/lordgift/flutter_native_bridged/MainActivity.kt)
+- [AppDelegate.swift](ios/Runner/AppDelegate.swift)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
