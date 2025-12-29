@@ -11,3 +11,5 @@
 
 # Optional: Allow .gitignore itself
 !.gitignore
+
+*/.gitignore
