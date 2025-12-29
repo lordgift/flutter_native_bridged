@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,6 +55,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  static const _channel = MethodChannel('th.in.lordgift.flutter_native_bridged/call_channel');
   int _counter = 0;
 
   void _incrementCounter() {
@@ -64,9 +66,31 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
+
+      getDeviceModel().then((value){
+        print(value);
+      });
+
+      channelHandler();
+
     });
   }
+  static Future<String> getDeviceModel() async {
+    try {
+      final String model = await _channel.invokeMethod('getDeviceModel');
+      return "Device Model: $model";
+    } catch (e) {
+      return "Error: $e";
+    }
+  }
 
+  static channelHandler() {
+    _channel.setMethodCallHandler((call) async {
+      if (call.method == 'nativeInvokesDart') {
+        print("${call.method} : ${call.arguments}");
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
